@@ -57,6 +57,7 @@ namespace SeleniumTests
             Logout();
         }
 
+        // Methods
         private void Logout()
         {
             driver.FindElement(By.LinkText("Logout")).Click();
@@ -105,7 +106,9 @@ namespace SeleniumTests
         {
             driver.Navigate().GoToUrl(baseURL + "addressbook/");
         }
-
+        
+////////////////////////////////////////////////
+        
         private bool IsElementPresent(By by)
         {
             try

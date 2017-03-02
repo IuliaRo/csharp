@@ -65,15 +65,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AccountData.cs" />
-    <Compile Include="ContactsData.cs" />
-    <Compile Include="GroupData.cs" />
+    <Compile Include="ContactCreationTest\ContactCreationTests.cs" />
+    <Compile Include="ContactCreationTest\ContactData.cs" />
+    <Compile Include="GroupCreationTest\AccountData.cs" />
+    <Compile Include="GroupCreationTest\GroupData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GroupCreationTests.cs" />
+    <Compile Include="GroupCreationTest\GroupCreationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
