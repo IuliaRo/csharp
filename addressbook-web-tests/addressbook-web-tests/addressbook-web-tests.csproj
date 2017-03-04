@@ -67,12 +67,15 @@
   <ItemGroup>
     <Compile Include="ContactCreationTest\ContactCreationTests.cs" />
     <Compile Include="ContactCreationTest\ContactData.cs" />
-    <Compile Include="GroupCreationTest\AccountData.cs" />
-    <Compile Include="GroupCreationTest\GroupData.cs" />
+    <Compile Include="GroupTests\AccountData.cs" />
+    <Compile Include="GroupTests\GroupData.cs" />
+    <Compile Include="GroupTests\GroupRemovalTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GroupCreationTest\GroupCreationTests.cs" />
+    <Compile Include="GroupTests\GroupCreationTests.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
