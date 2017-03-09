@@ -1,5 +1,4 @@
-﻿using addressbook_web_tests;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace WebAddressbookTests
 {
@@ -13,12 +12,12 @@ namespace WebAddressbookTests
             contact.Title = "Missis";
             contact.Address = "Lenina str";
 
-            GoToHomePage();
-            Login(new AccountData("admin", "secret"));
-            InitCreatingNewContact();
-            FillContactForm(contact);
-            SubmitContactCreation();
-            Logout();
+            app.Navigator.GoToHomePage();
+            app.Auth.Login(new AccountData("admin", "secret"));
+            app.Contacts.InitCreatingNewContact();
+            app.Contacts.FillContactForm(contact);
+            app.Contacts.SubmitContactCreation();
+            app.Auth.Logout();
         }     
     }
 }
