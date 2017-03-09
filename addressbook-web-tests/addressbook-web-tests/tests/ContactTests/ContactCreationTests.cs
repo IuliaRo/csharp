@@ -12,11 +12,7 @@ namespace WebAddressbookTests
             contact.Title = "Missis";
             contact.Address = "Lenina str";
 
-            app.Navigator.GoToHomePage();
-            app.Auth.Login(new AccountData("admin", "secret"));
-            app.Contacts.InitCreatingNewContact();
-            app.Contacts.FillContactForm(contact);
-            app.Contacts.SubmitContactCreation();
+            app.Contacts.Create(contact);
             app.Auth.Logout();
         }     
     }

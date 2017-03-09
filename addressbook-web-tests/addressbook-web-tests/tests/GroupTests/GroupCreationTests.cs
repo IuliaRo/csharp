@@ -12,13 +12,18 @@ namespace WebAddressbookTests
             group.Header = "bbb";
             group.Footer = "ccc";
 
-            app.Navigator.GoToHomePage();
-            app.Auth.Login(new AccountData("admin", "secret"));
-            app.Navigator.GoToGroupsPage();
-            app.Groups.InitNewGroupCreation();
-            app.Groups.FillGroupForm(group);
-            app.Groups.SubmitGroupCreation();
-            app.Navigator.GoToGroupsPage();
+            app.Groups.Create(group);
+            app.Auth.Logout();
+        }
+
+        [Test]
+        public void EmptyGroupCreationTest()
+        {
+            GroupData group = new GroupData("");
+            group.Header = "";
+            group.Footer = "";
+
+            app.Groups.Create(group);
             app.Auth.Logout();
         }
     }

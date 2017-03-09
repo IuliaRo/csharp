@@ -23,10 +23,15 @@ namespace WebAddressbookTests
             driver = new FirefoxDriver(new FirefoxBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe"), new FirefoxProfile());
             baseURL = "http://localhost";
 
-            LoginHelper = new LoginHelper(driver);
-            navigator = new NavigationHelper(driver, baseURL);
-            GroupHelper = new GroupHelper(driver);
-            ContactHelper = new ContactHelper(driver);
+            LoginHelper = new LoginHelper(this);
+            navigator = new NavigationHelper(this, baseURL);
+            GroupHelper = new GroupHelper(this);
+            ContactHelper = new ContactHelper(this);
+        }
+
+        public IWebDriver Driver
+        {
+            get { return driver; }
         }
 
         public void Stop()
@@ -71,6 +76,6 @@ namespace WebAddressbookTests
             {
                 return ContactHelper;
             }
-        }
+        }      
     }
 }
