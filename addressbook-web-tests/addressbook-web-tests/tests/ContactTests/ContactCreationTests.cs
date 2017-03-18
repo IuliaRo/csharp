@@ -3,7 +3,7 @@
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class ContactCreationTests : TestBase
+    public class ContactCreationTests : AuthTestBase
     {
         [Test]
         public void ContactCreationTest()
@@ -13,7 +13,7 @@ namespace WebAddressbookTests
             contact.Address = "Lenina str";
 
             app.Contacts.Create(contact);
-            app.Auth.Logout();
+            //app.Auth.Logout();
         }     
     }
 }

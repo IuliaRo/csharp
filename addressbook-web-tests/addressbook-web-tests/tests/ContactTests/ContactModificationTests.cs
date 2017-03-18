@@ -1,10 +1,10 @@
 ﻿using NUnit.Framework;
 using WebAddressbookTests;
 
-namespace addressbook_web_tests.tests.ContactTests
+namespace WebAddressbookTests
 {
     [TestFixture]
-    public class ContactModificationTests : TestBase
+    public class ContactModificationTests : AuthTestBase
     {
         [Test]
         public void ContactModificationTest()
@@ -14,7 +14,7 @@ namespace addressbook_web_tests.tests.ContactTests
             newData.Address = "Nahimova str";
 
             app.Contacts.Modify(1, newData);
-            app.Auth.Logout();
+            //app.Auth.Logout();
         }
     }
 }

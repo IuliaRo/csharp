@@ -8,7 +8,7 @@ namespace WebAddressbookTests
         {
         }
 
-        public GroupHelper Create(GroupData group)
+      public GroupHelper Create(GroupData group)
         {
             manager.Navigator.GoToGroupsPage();
             InitNewGroupCreation();
@@ -18,9 +18,16 @@ namespace WebAddressbookTests
             return this;
         }
 
-        public GroupHelper RemoveGroup(int i)
+        public GroupHelper RemoveGroup(int i, GroupData group = null)
         {
+            
             manager.Navigator.GoToGroupsPage();
+            if (!IsElementPresent(By.Name("selected[]")))
+            {
+                InitNewGroupCreation();
+                FillGroupForm(group);
+                SubmitGroupCreation();
+            }
             SelectGroup(i);
             RemoveGroup();
             manager.Navigator.GoToGroupsPage();
