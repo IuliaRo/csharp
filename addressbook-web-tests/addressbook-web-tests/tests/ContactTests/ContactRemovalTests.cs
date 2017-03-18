@@ -10,6 +10,7 @@ namespace addressbook_web_tests.tests.ContactTests
         public void ContactRemovalTest()
         {
             app.Contacts.Remove(1);
+            app.Auth.Logout();
         }
     }
 }

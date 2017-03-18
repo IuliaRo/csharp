@@ -14,6 +14,7 @@ namespace addressbook_web_tests.tests.ContactTests
             newData.Address = "Nahimova str";
 
             app.Contacts.Modify(1, newData);
+            app.Auth.Logout();
         }
     }
 }
