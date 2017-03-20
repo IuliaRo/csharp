@@ -8,7 +8,7 @@ namespace WebAddressbookTests
         [Test]
         public void GroupCreationTest()
         {
-            GroupData group = new GroupData("aaa");
+            var group = new GroupData("aaa");
             group.Header = "bbb";
             group.Footer = "ccc";
 
@@ -19,7 +19,7 @@ namespace WebAddressbookTests
         [Test]
         public void EmptyGroupCreationTest()
         {
-            GroupData group = new GroupData("");
+            var group = new GroupData("");
             group.Header = "";
             group.Footer = "";
 

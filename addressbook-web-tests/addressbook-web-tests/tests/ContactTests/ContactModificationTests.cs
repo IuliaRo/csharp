@@ -9,12 +9,20 @@ namespace WebAddressbookTests
         [Test]
         public void ContactModificationTest()
         {
-            ContactData newData = new ContactData("Testname", "Testlastname");
+            var newData = new ContactData("Testname", "Testlastname");
             newData.Title = "Miss";
             newData.Address = "Nahimova str";
 
+            var contact = new ContactData("Firstname", "Lastname");
+            contact.Title = "Missis";
+            contact.Address = "Lenina str";
+
+            if (!app.Contacts.CheckIfContactExists())
+            {
+                app.Contacts.Create(contact);
+            }
+
             app.Contacts.Modify(1, newData);
-            //app.Auth.Logout();
         }
     }
 }

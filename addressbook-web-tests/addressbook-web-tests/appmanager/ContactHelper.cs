@@ -111,5 +111,18 @@ namespace WebAddressbookTests
             driver.FindElement(By.XPath("(//input[@name='submit'])[2]")).Click();
             return this;
         }
+
+        public bool CheckIfContactExists()
+        {
+            manager.Navigator.GoToHomePage();
+            if (IsElementPresent(By.Name("selected[]")))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

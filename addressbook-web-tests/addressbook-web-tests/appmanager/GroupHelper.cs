@@ -8,6 +8,19 @@ namespace WebAddressbookTests
         {
         }
 
+        public bool CheckIfGroupExists()
+        {
+            manager.Navigator.GoToGroupsPage();
+            if (IsElementPresent(By.Name("selected[]")))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
       public GroupHelper Create(GroupData group)
         {
             manager.Navigator.GoToGroupsPage();
@@ -22,12 +35,6 @@ namespace WebAddressbookTests
         {
             
             manager.Navigator.GoToGroupsPage();
-            if (!IsElementPresent(By.Name("selected[]")))
-            {
-                InitNewGroupCreation();
-                FillGroupForm(group);
-                SubmitGroupCreation();
-            }
             SelectGroup(i);
             RemoveGroup();
             manager.Navigator.GoToGroupsPage();
