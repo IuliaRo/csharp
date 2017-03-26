@@ -1,4 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using NUnit.Framework;
+using OpenQA.Selenium;
 
 namespace WebAddressbookTests
 {
@@ -65,8 +69,29 @@ namespace WebAddressbookTests
 
         public ContactHelper SelectContact(int contactNumber)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + contactNumber + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (contactNumber + 1) + "]")).Click();
             return this;
+        }
+
+        public List<ContactData> GetContactList()
+        {
+            List < ContactData > contacts = new List<ContactData>();
+            manager.Navigator.GoToHomePage();
+
+            ICollection<IWebElement> lines = driver.FindElements(By.CssSelector("tr"));
+
+            foreach (IWebElement line in lines)
+            {
+                var cells = line.FindElements(By.TagName("td")).ToList();
+                if (cells.Count != 0)
+                {
+                    var lastName = cells[1].Text;
+                    var firstName = cells[2].Text;
+                    ContactData contact = new ContactData(lastName, firstName);
+                    contacts.Add(contact);
+                }
+            }
+            return contacts;
         }
 
         public ContactHelper FillContactForm(ContactData contact)
