@@ -40,13 +40,6 @@ namespace WebAddressbookTests
             return Name.CompareTo(other.Name);
         }
 
-        /*public GroupData(string name, string header, string footer)
-        {
-            this.name = name;
-            this.header = header;
-            this.footer = footer;
-        }*/
-
         public string Name
         {
             get { return name; }

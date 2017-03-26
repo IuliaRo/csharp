@@ -42,8 +42,6 @@ namespace WebAddressbookTests
             this.lastName = lastName;
         }
 
-
-        /// //////////////////////////////////////////////////////////////////
         public bool Equals(ContactData other)
         {
             if (Object.ReferenceEquals(other, null))
@@ -85,9 +83,6 @@ namespace WebAddressbookTests
                 return LastName.CompareTo(other.lastName);
             }
         }
-
-       
-        /////////////////////////////////////////////////////////////////////
 
         public string FirstName
         {
@@ -238,6 +233,5 @@ namespace WebAddressbookTests
             get { return secondaryNotes; }
             set { secondaryNotes = value; }
         }
-
     }
 }

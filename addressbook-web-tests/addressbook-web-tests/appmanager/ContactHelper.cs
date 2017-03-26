@@ -87,7 +87,7 @@ namespace WebAddressbookTests
                 {
                     var lastName = cells[1].Text;
                     var firstName = cells[2].Text;
-                    ContactData contact = new ContactData(lastName, firstName);
+                    ContactData contact = new ContactData(firstName, lastName);
                     contacts.Add(contact);
                 }
             }

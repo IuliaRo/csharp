@@ -28,7 +28,5 @@ namespace WebAddressbookTests
             oldContacts.RemoveAt(0);
             Assert.AreEqual(oldContacts, newContacts);
         }
-
-
     }
 }
