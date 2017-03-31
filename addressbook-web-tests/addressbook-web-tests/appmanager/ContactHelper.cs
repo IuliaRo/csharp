@@ -49,7 +49,6 @@ namespace WebAddressbookTests
         public void InitContactModification(int index)
         {
             driver.FindElements(By.Name("entry"))[index].FindElements(By.TagName("td"))[7].FindElement(By.TagName("a")).Click();
-            
         }
         
         public ContactHelper RemoveContact()
@@ -178,12 +177,29 @@ namespace WebAddressbookTests
             };
         }
 
+        public string GetContactInformationFromViewPage(int index)
+        {
+            manager.Navigator.GoToHomePage();
+            OpenContactViewPage(0);
+
+            string content = driver.FindElement(By.Id("content")).Text;
+            if (content == null || content == "")
+                return "";
+            return Regex.Replace(content, @"[: -()\r\nHM]", "");
+        }
+
+        public void OpenContactViewPage(int index)
+        {
+            driver.FindElements(By.Name("entry"))[index].FindElements(By.TagName("td"))[6].FindElement(By.TagName("a")).Click();
+        }
+
         public ContactData GetContactInformationFromEditForm(int index)
         {
             manager.Navigator.GoToHomePage();
             InitContactModification(0);
             string firstName = driver.FindElement(By.Name("firstname")).GetAttribute("value");
             string lastName = driver.FindElement(By.Name("lastname")).GetAttribute("value");
+            string title = driver.FindElement(By.Name("title")).GetAttribute("value");
             string address = driver.FindElement(By.Name("address")).GetAttribute("value");
             string homePhone = driver.FindElement(By.Name("home")).GetAttribute("value");
             string mobilePhone = driver.FindElement(By.Name("mobile")).GetAttribute("value");
@@ -193,6 +209,7 @@ namespace WebAddressbookTests
 
             return new ContactData(firstName, lastName)
             {
+                Title = title,
                 Address = address,
                 TelephoneHome = homePhone,
                 TelephoneMobile = mobilePhone,

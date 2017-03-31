@@ -113,13 +113,30 @@ namespace WebAddressbookTests
             set { allEmails = value; }
         }
 
+        public string WholeContactString
+        {
+            get
+            {
+                if (wholeContactString != null)
+                {
+                    return wholeContactString;
+                }
+                else
+                {
+                    return (CleanUp(FirstName + LastName + Title + Address + AllPhones + AllEmails)).Trim();
+                }
+            }
+            set { wholeContactString = value; }
+        }
+
         private string CleanUp(string phoneNumber)
         {
             if (phoneNumber == null || phoneNumber == "")
                 return "";
-            return Regex.Replace(phoneNumber, @"[ -()]", "") + "\r\n";
+            return Regex.Replace(phoneNumber, @"[: -()\r\nHM]", "") + "\r\n";
         }
 
+        private string wholeContactString;
         private string allEmails;
         private string allPhones;
 
