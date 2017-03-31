@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace WebAddressbookTests
@@ -81,6 +82,46 @@ namespace WebAddressbookTests
         public string SecondaryAddress { get; set; }
         public string SecondaryHome { get; set; }
         public string SecondaryNotes { get; set; }
+        public string AllPhones
+        {
+            get
+            {
+                if (allPhones != null)
+                {
+                    return allPhones;
+                }
+                else
+                {
+                    return (CleanUp(TelephoneHome) + CleanUp(TelephoneMobile) + CleanUp(TelephoneWork)).Trim();
+                }
+            }
+            set { allPhones = value; }
+        }
+        public string AllEmails
+        {
+            get
+            {
+                if (allEmails != null)
+                {
+                    return allEmails;
+                }
+                else
+                {
+                    return (CleanUp(Email1) + CleanUp(Email2) + CleanUp(Email3)).Trim();
+                }
+            }
+            set { allEmails = value; }
+        }
+
+        private string CleanUp(string phoneNumber)
+        {
+            if (phoneNumber == null || phoneNumber == "")
+                return "";
+            return Regex.Replace(phoneNumber, @"[ -()]", "") + "\r\n";
+        }
+
+        private string allEmails;
+        private string allPhones;
 
     }
 }
