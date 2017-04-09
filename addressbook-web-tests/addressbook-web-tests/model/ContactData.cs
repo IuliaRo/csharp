@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace WebAddressbookTests
 {
@@ -13,6 +15,10 @@ namespace WebAddressbookTests
         {
             FirstName = firstName;
             LastName = lastName;
+        }
+
+        public ContactData()
+        {
         }
 
         public bool Equals(ContactData other)
@@ -112,7 +118,8 @@ namespace WebAddressbookTests
             }
             set { allEmails = value; }
         }
-
+        [JsonIgnore]
+        [XmlIgnore]
         public string WholeContactString
         {
             get
