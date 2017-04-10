@@ -18,7 +18,7 @@ namespace addresbook_test_data_generators
         static void Main(string[] args)
         {
             int countOfTestData = Convert.ToInt32(args[0]);
-            StreamWriter writer = new StreamWriter(args[1]); //move to else part?
+            
             string format = args[2];
             string dataType = args[3];
 
@@ -41,7 +41,7 @@ namespace addresbook_test_data_generators
 
                 else
                 {
-                    //StreamWriter writer = new StreamWriter(args[1]);
+                    StreamWriter writer = new StreamWriter(args[1]);
                     if (format == "csv")
                     {
                         WriteGroupsToCsvFile(groups, writer);
@@ -82,7 +82,7 @@ namespace addresbook_test_data_generators
 
                 else
                 {
-                    //StreamWriter writer = new StreamWriter(args[1]);
+                    StreamWriter writer = new StreamWriter(args[1]);
                     if (format == "csv")
                     {
                         WriteContactsToCsvFile(contacts, writer);
