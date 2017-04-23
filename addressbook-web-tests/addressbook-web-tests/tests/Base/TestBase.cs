@@ -24,7 +24,7 @@ namespace WebAddressbookTests
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < l; i++)
             {
-                builder.Append(Convert.ToChar(32 + Convert.ToInt32(rnd.NextDouble()*65)));
+                builder.Append(Convert.ToChar(65 + Convert.ToInt32(rnd.NextDouble()*90)));
             }
             return builder.ToString();
         }

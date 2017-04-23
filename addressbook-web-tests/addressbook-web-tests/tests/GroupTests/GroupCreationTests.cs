@@ -20,10 +20,10 @@ namespace WebAddressbookTests
             List<GroupData> groups = new List<GroupData>();
             for (var i = 0; i < 3; i++) //generate 5 different test data set
             {
-                groups.Add (new GroupData(GenerateRandomString(30))
+                groups.Add (new GroupData(GenerateRandomString(10))
                 {
-                    Header = GenerateRandomString(100),
-                    Footer = GenerateRandomString(100)
+                    Header = GenerateRandomString(10),
+                    Footer = GenerateRandomString(10)
                 });
             }
 

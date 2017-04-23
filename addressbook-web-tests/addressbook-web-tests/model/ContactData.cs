@@ -6,9 +6,11 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Xml.Serialization;
+using LinqToDB.Mapping;
 
 namespace WebAddressbookTests
 {
+    [Table(Name = "addressbook")]
     public class ContactData : IEquatable<ContactData>, IComparable<ContactData>
     {
         public ContactData(string firstName, string lastName)
@@ -63,31 +65,91 @@ namespace WebAddressbookTests
             }
         }
 
+        [Column (Name = "firstname")]
         public string FirstName { get; set; }
+
+        [Column(Name = "lastname")]
         public string LastName { get; set; }
+
+        [Column(Name = "middlename")]
         public string MiddleName { get; set; }
+
+        [Column(Name = "nickname")]
         public string Nickname { get; set; }
-        public string Photo { get; set; }
+
+        //public string Photo { get; set; }
+
+        [Column(Name = "title")]
         public string Title { get; set; }
+
+        [Column(Name = "company")]
         public string Company { get; set; }
+
+        [Column(Name = "address")]
         public string Address { get; set; }
+
+        [Column(Name = "home")]
         public string TelephoneHome { get; set; }
+
+        [Column(Name = "mobile")]
         public string TelephoneMobile { get; set; }
+
+        [Column(Name = "work")]
         public string TelephoneWork { get; set; }
+
+        [Column(Name = "fax")]
         public string Fax { get; set; }
+
+        [Column(Name = "email")]
         public string Email1 { get; set; }
+
+        [Column(Name = "email2")]
         public string Email2 { get; set; }
+
+        [Column(Name = "email3")]
         public string Email3 { get; set; }
+
+        [Column(Name = "homepage")]
         public string Homepage { get; set; }
+
+        [Column(Name = "bday")]
         public string BirthdayDay { get; set; }
+
+        [Column(Name = "bmonth")]
         public string BirthdayMonth { get; set; }
+
+        [Column(Name = "byear")]
         public string BirthdayYear { get; set; }
+
+        [Column(Name = "aday")]
         public string AnniversaryDay { get; set; }
+
+        [Column(Name = "amonth")]
         public string AnniversaryMonth { get; set; }
+
+        [Column(Name = "ayear")]
         public string AnniversaryYear { get; set; }
+
+        [Column(Name = "address2")]
         public string SecondaryAddress { get; set; }
+
+        [Column(Name = "phone2")]
         public string SecondaryHome { get; set; }
+
+        [Column(Name = "notes")]
         public string SecondaryNotes { get; set; }
+
+        [Column(Name = "id"), PrimaryKey, Identity] //PrimaryKey - the unique key of the table; Identity - for unique objects identification
+        public string Id { get; set; }
+
+        public static List<ContactData> GetAll()
+        {
+            using (AddressBookDB db = new AddressBookDB()) //using this using *.Close method will be called automatically
+            {
+                return (from c in db.Contacts select c).ToList();
+            }
+        }
+
         public string AllPhones
         {
             get
@@ -103,6 +165,7 @@ namespace WebAddressbookTests
             }
             set { allPhones = value; }
         }
+
         public string AllEmails
         {
             get
@@ -118,6 +181,7 @@ namespace WebAddressbookTests
             }
             set { allEmails = value; }
         }
+
         [JsonIgnore]
         [XmlIgnore]
         public string WholeContactString

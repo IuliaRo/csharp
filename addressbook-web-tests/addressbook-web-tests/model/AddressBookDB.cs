@@ -7,7 +7,7 @@ using LinqToDB;
 
 namespace WebAddressbookTests
 {
-    public class AddressBookDB : LinqToDB.Data.DataConnection //наследование для того, чтобы этот класс представлял собой БД?
+    public class AddressBookDB : LinqToDB.Data.DataConnection
     {
         //show which connection string to use to connect to DB
         public AddressBookDB(): base("AddressBook") { }

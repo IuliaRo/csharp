@@ -83,6 +83,7 @@
     <Compile Include="appmanager\ApplicationManager.cs" />
     <Compile Include="model\AddressBookDB.cs" />
     <Compile Include="tests\Base\AuthTestBase.cs" />
+    <Compile Include="tests\Base\ContactTestBase.cs" />
     <Compile Include="tests\ContactTests\ContactCreationTests.cs" />
     <Compile Include="model\ContactData.cs" />
     <Compile Include="appmanager\ContactHelper.cs" />
