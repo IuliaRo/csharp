@@ -142,11 +142,14 @@ namespace WebAddressbookTests
         [Column(Name = "id"), PrimaryKey, Identity] //PrimaryKey - the unique key of the table; Identity - for unique objects identification
         public string Id { get; set; }
 
+        [Column(Name = "deprecated")]
+        public string Deprecated { get; set; }
+
         public static List<ContactData> GetAll()
         {
             using (AddressBookDB db = new AddressBookDB()) //using this using *.Close method will be called automatically
             {
-                return (from c in db.Contacts select c).ToList();
+                return (from c in db.Contacts.Where(x => x.Deprecated == "0000-00-00 00:00:00") select c).ToList();
             }
         }
 
