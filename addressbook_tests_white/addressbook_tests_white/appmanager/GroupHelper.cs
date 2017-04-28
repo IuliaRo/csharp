@@ -44,7 +44,7 @@ namespace addressbook_tests_white
             Window dialogue = OpenGroupsDialogue();
             manager.MainWindow.Get<Button>("uxNewAddressButton").Click();
             TextBox textBox = (TextBox) dialogue.Get(SearchCriteria.ByControlType(ControlType.Edit));
-            textBox.Enter(newGroup.Name);
+            textBox.BulkText = newGroup.Name;
             Keyboard.Instance.PressSpecialKey(KeyboardInput.SpecialKeys.RETURN);
             CloseGroupsDialogue(dialogue);
         }
