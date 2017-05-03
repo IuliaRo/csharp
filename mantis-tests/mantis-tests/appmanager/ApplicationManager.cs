@@ -26,7 +26,13 @@ namespace mantis_tests
             Ftp = new FtpHelper(this);
             James = new JamesHelper(this);
             Mail = new MailHelper(this);
+            Login = new LoginHelper(this);
+            Project = new ProjectHelper(this);
         }
+
+        public ProjectHelper Project { get; set; }
+
+        public LoginHelper Login { get; set; }
 
         public MailHelper Mail { get; set; }
 
