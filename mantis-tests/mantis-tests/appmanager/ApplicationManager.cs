@@ -25,7 +25,10 @@ namespace mantis_tests
             Registration = new RegistrationHelper(this);
             Ftp = new FtpHelper(this);
             James = new JamesHelper(this);
+            Mail = new MailHelper(this);
         }
+
+        public MailHelper Mail { get; set; }
 
         public JamesHelper James { get; set; }
 
