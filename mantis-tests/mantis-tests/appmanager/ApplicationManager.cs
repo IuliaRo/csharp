@@ -24,7 +24,10 @@ namespace mantis_tests
             baseURL = "http://localhost";
             Registration = new RegistrationHelper(this);
             Ftp = new FtpHelper(this);
+            James = new JamesHelper(this);
         }
+
+        public JamesHelper James { get; set; }
 
         public FtpHelper Ftp { get; set; }
 
