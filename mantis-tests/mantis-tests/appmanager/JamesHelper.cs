@@ -38,7 +38,7 @@ namespace mantis_tests
         public bool Verify(AccountData account)
         {
             var telnet = LoginToJames();
-            telnet.WriteLine("varify " + account.Name + " " + account.Password);
+            telnet.WriteLine("verify " + account.Name + " " + account.Password);
             String s = telnet.Read();
             System.Console.Out.WriteLine(s);
             return (!s.Contains("does not exist"));
